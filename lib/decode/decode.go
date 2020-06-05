@@ -98,6 +98,12 @@ func canonicalFieldKey(field reflect.StructField) string {
 // allowing mapstructure to handle and report the decode error caused by
 // mismatched types.
 //
+// If this hook is being used on a "second pass" decode to decode an opaque
+// configuration into a type, the DecodeConfig should set WeaklyTypedInput=true,
+// (or another hook) to convert any scalar values into a slice of one value when
+// the target is a slice. This is necessary because this hook would have converted
+// the initial slices into single values on the first pass.
+//
 // Background
 //
 // HCL allows for repeated blocks which forces it to store structures
