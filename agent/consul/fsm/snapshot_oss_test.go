@@ -518,6 +518,7 @@ func TestFSM_SnapshotRestore_OSS(t *testing.T) {
 
 	// Verify the acl-token-bootstrap index was restored
 	canBootstrap, index, err := fsm2.state.CanBootstrapACLToken()
+	require.NoError(err)
 	require.False(canBootstrap)
 	require.True(index > 0)
 

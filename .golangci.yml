@@ -17,10 +17,6 @@ issues:
     - linters: [staticcheck]
       text: "SA9004:"
 
-    # Temp ignore SA4006: this value of `x` is never used
-    - linters: [staticcheck]
-      text: "SA4006:"
-
     # Temp ignore SA2002: the goroutine calls T.Fatalf, which must be called in the same goroutine as the test
     - linters: [staticcheck]
       text: "SA2002:"
